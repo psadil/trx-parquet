@@ -1,4 +1,4 @@
-# trx-polars
+# trx-parquet
 
 Prototype for TRX file stored as parquet tables
 

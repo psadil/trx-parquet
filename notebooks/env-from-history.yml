@@ -1,4 +1,4 @@
-name: trx-polars
+name: trx-parquet
 channels:
   - conda-forge
 dependencies:

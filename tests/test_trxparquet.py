@@ -4,7 +4,7 @@ import time
 import polars as pl
 from trx import fetcher
 
-from trx_polars import trxparquet
+from trx_parquet import trxparquet
 
 
 def test_example():

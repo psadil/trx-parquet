@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "trx-polars"
+name = "trx-parquet"
 dynamic = ["version"]
 description = ''
 readme = "README.md"
@@ -11,26 +11,15 @@ requires-python = ">=3.7"
 license = "MIT"
 keywords = []
 authors = [{ name = "Patrick Sadil", email = "psadil@gmail.com" }]
-classifiers = [
-  "Development Status :: 4 - Beta",
-  "Programming Language :: Python",
-  "Programming Language :: Python :: 3.7",
-  "Programming Language :: Python :: 3.8",
-  "Programming Language :: Python :: 3.9",
-  "Programming Language :: Python :: 3.10",
-  "Programming Language :: Python :: 3.11",
-  "Programming Language :: Python :: Implementation :: CPython",
-  "Programming Language :: Python :: Implementation :: PyPy",
-]
 dependencies = []
 
 [project.urls]
-Documentation = "https://github.com/unknown/trx-polars#readme"
-Issues = "https://github.com/unknown/trx-polars/issues"
-Source = "https://github.com/unknown/trx-polars"
+Documentation = "https://github.com/unknown/trx-parquet#readme"
+Issues = "https://github.com/unknown/trx-parquet/issues"
+Source = "https://github.com/unknown/trx-parquet"
 
 [tool.hatch.version]
-path = "src/trx_polars/__about__.py"
+path = "src/trx_parquet/__about__.py"
 
 [tool.hatch.envs.default]
 dependencies = ["coverage[toml]>=6.5", "pytest"]
@@ -47,7 +36,7 @@ python = ["3.7", "3.8", "3.9", "3.10", "3.11"]
 detached = true
 dependencies = ["black>=23.1.0", "mypy>=1.0.0", "ruff>=0.0.243"]
 [tool.hatch.envs.lint.scripts]
-typing = "mypy --install-types --non-interactive {args:src/trx_polars tests}"
+typing = "mypy --install-types --non-interactive {args:src/trx_parquet tests}"
 style = ["ruff {args:.}", "black --check --diff {args:.}"]
 fmt = ["black {args:.}", "ruff --fix {args:.}", "style"]
 all = ["style", "typing"]
@@ -109,7 +98,7 @@ unfixable = [
 ]
 
 [tool.ruff.isort]
-known-first-party = ["trx_polars"]
+known-first-party = ["trx_parquet"]
 
 [tool.ruff.flake8-tidy-imports]
 ban-relative-imports = "all"
@@ -119,14 +108,14 @@ ban-relative-imports = "all"
 "tests/**/*" = ["PLR2004", "S101", "TID252"]
 
 [tool.coverage.run]
-source_pkgs = ["trx_polars", "tests"]
+source_pkgs = ["trx_parquet", "tests"]
 branch = true
 parallel = true
-omit = ["src/trx_polars/__about__.py"]
+omit = ["src/trx_parquet/__about__.py"]
 
 [tool.coverage.paths]
-trx_polars = ["src/trx_polars", "*/trx-polars/src/trx_polars"]
-tests = ["tests", "*/trx-polars/tests"]
+trx_parquet = ["src/trx_parquet", "*/trx-parquet/src/trx_parquet"]
+tests = ["tests", "*/trx-parquet/tests"]
 
 [tool.coverage.report]
 exclude_lines = ["no cov", "if __name__ == .__main__.:", "if TYPE_CHECKING:"]
