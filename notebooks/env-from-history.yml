@@ -1,0 +1,15 @@
+name: trx-polars
+channels:
+  - conda-forge
+dependencies:
+  - polars
+  - pyarrow
+  - jupyter
+  - numpy
+  - nibabel
+  - dipy
+  - deepdiff
+  - pytest
+  - ca-certificates
+  - certifi
+  - openssl
