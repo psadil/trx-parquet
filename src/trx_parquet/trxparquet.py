@@ -398,9 +398,6 @@ class TrxParquet:
                 Manner in which data should be loaded by polars. Defaults to "lazy".
             streamlines : Filter used for selection of subset of streamlines.
 
-        Raises:
-            ValueError: _description_
-
         Returns:
             TrxParquet: Instance of TrxParquet with data stored according to loadtype
         """
@@ -409,10 +406,13 @@ class TrxParquet:
         )
 
         if loadtype == "lazy":
-            # polars currently chokes on metadata in the schema
+            # polars currently has difficulty with metadata in the schema
             # https://github.com/pola-rs/polars/issues/5117
             data = pl.scan_pyarrow_dataset(ds.dataset(src))
         elif loadtype == "memory_map":
+            # note that memory mapping can lead to unexpected copies of
+            # data in recent versions of polars
+            # https://github.com/pola-rs/polars/issues/11546
             data = pl.read_parquet(
                 source=str(src), memory_map=True, use_pyarrow=True
             )
