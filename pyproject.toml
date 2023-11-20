@@ -7,11 +7,11 @@ name = "trx-parquet"
 dynamic = ["version"]
 description = ''
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.10"
 license = "MIT"
 keywords = []
 authors = [{ name = "Patrick Sadil", email = "psadil@gmail.com" }]
-dependencies = []
+dependencies = ["dipy", "nibabel", "numpy", "polars", "pyarrow>=14.0.0", "trx"]
 
 [project.urls]
 Documentation = "https://github.com/unknown/trx-parquet#readme"
